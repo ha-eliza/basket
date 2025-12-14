@@ -1,0 +1,133 @@
+.form-container {
+  max-width: 420px;
+  width: 100%;
+  padding: 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-xl);
+  margin: 2rem 0;
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light), var(--accent-color));
+  background-size: 200% 100%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--title-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-container h2::before {
+  content: '✨';
+  font-size: 1.25rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+form label {
+  grid-column: span 2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+
+form input {
+  grid-column: span 2;
+  padding: 0.625rem 1rem;
+  border: 2px solid var(--input-border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-family: 'Messina Sans', sans-serif;
+  background-color: var(--input-bg-color);
+  transition: var(--transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+form input:hover {
+  border-color: var(--accent-color-light);
+}
+
+form button {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-hover) 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  text-transform: none;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+form button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+form button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-purple);
+}
+
+form button:active {
+  transform: translateY(0);
+}

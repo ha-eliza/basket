@@ -1,0 +1,40 @@
+:root {
+  --body-color: #faf5ff; /* общий фон с фиолетовым оттенком */
+  --title-color: #1e1b4b; /* цвет заголовков */
+  --subtitle-color: #6b7280; /* цвет подзаголовков */
+  --nav-link-color: #1e1b4b; /* цвет ссылок в навигации */
+  --accent-color: #8b5cf6; /* основной фиолетовый цвет */
+  --accent-color-hover: #7c3aed; /* фиолетовый при наведении */
+  --accent-color-light: #a78bfa; /* светлый фиолетовый */
+  --accent-color-dark: #6d28d9; /* темный фиолетовый */
+  --negative-color: #ef4444;
+  --bg-hover: #f3e8ff;
+  --card-bg: #ffffff;
+  --border-color: #e9d5ff;
+  --shadow-sm: 0 1px 2px 0 rgb(139 92 246 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(139 92 246 / 0.1), 0 2px 4px -2px rgb(139 92 246 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(139 92 246 / 0.15), 0 4px 6px -4px rgb(139 92 246 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(139 92 246 / 0.2), 0 8px 10px -6px rgb(139 92 246 / 0.1);
+  --shadow-purple: 0 10px 25px -5px rgb(139 92 246 / 0.3), 0 4px 6px -4px rgb(139 92 246 / 0.2);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  --button-bg-color: #8b5cf6;
+  --button-text-color: #fff;
+}
+
+/* forms */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+textarea {
+  --input-bg-color: #fff;
+  --input-border-color: #e9d5ff;
+  --input-border-focus: #8b5cf6;
+}
