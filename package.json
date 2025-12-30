@@ -30,7 +30,8 @@
     "stylelint": "stylelint src/**/*.css",
     "stylelint:fix": "stylelint --fix src/**/*.css",
     "test": "jest",
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "server": "json-server --watch db.json"
   },
   "dependencies": {
     "@babel/core": "^7.20.12",

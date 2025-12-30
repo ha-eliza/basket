@@ -1,0 +1,7 @@
+export const PRODUCTS_LIST = document.querySelector('.products-list') // контейнер для отрисовки товаров
+export const FORM = document.querySelector('#productForm') // форма для создания товара
+export const BASKET_BTN = document.querySelector('#open-basket') // кнопка для открытия модалки
+export const CLOSE_MODAL = document.querySelector('#close-button') // кнопка закрытия модалки
+export const MODAL = document.querySelector('#modal-basket') // модалка для корзины
+export const BASKET_LIST = [] // массив для хранения товаров в корзине
+export const BASKET_LIST_CONTAINER = document.querySelector('.basket-container__list') // родитель для отрисовки товаров в корзине
