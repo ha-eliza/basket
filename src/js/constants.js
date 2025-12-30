@@ -5,3 +5,5 @@ export const CLOSE_MODAL = document.querySelector('#close-button') // кнопк
 export const MODAL = document.querySelector('#modal-basket') // модалка для корзины
 export const BASKET_LIST = [] // массив для хранения товаров в корзине
 export const BASKET_LIST_CONTAINER = document.querySelector('.basket-container__list') // родитель для отрисовки товаров в корзине
+export const counterEl = document.querySelector('.basket-count__info') // счетчик
+export const totalEl = document.querySelector('.modal-body__total') // общая сумма

@@ -1,4 +1,13 @@
-import { FORM, MODAL, BASKET_BTN, CLOSE_MODAL, BASKET_LIST, BASKET_LIST_CONTAINER } from './constants'
+import {
+  FORM,
+  MODAL,
+  BASKET_BTN,
+  CLOSE_MODAL,
+  BASKET_LIST,
+  BASKET_LIST_CONTAINER,
+  counterEl,
+  totalEl,
+} from './constants'
 import { createProduct, loadJSON } from './api'
 
 /**
@@ -92,6 +101,54 @@ export const renderBasketItems = () => {
     html += generateProductTemplate(product, false)
   })
   BASKET_LIST_CONTAINER.innerHTML = html
+  handleRemoveFromBasket()
+  updateTotalPrice()
+}
+
+// Функция обновления счетчика
+let basketCount = 0
+export const updateBasketCounter = () => {
+  if (counterEl) {
+    counterEl.textContent = basketCount
+  }
+}
+
+// Функция удаления товара с корзины
+export const handleRemoveFromBasket = () => {
+  const removeButtons = document.querySelectorAll('.item-remove')
+  removeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const productId = btn?.closest('.product-card')?.id
+      if (productId) {
+        // Находим индекс товара по id
+        const index = BASKET_LIST.findIndex((p) => p.id === productId)
+        if (index !== -1) {
+          BASKET_LIST.splice(index, 1) // удаляем товар
+
+          // Обновляем счетчик
+          basketCount--
+          updateBasketCounter()
+
+          // Перерисовываем корзину
+          renderBasketItems()
+        }
+      }
+    })
+  })
+}
+
+// Функция нахождения общей суммы товаров
+export const updateTotalPrice = () => {
+  const totalPrice = BASKET_LIST.reduce((sum, product) => {
+    const priceNumber =
+      typeof product.price === 'string' ? parseFloat(product.price.replace(/[^0-9.-]+/g, '')) : product.price
+    return sum + priceNumber
+  }, 0)
+
+  // Обновляем текст в элементе
+  if (totalEl) {
+    totalEl.textContent = `Total: $${totalPrice.toFixed(2)}`
+  }
 }
 
 // Обработчик добавления товара в корзину
@@ -106,6 +163,9 @@ export const handleAddToBasket = (data) => {
       const findedProduct = data?.find(({ id }) => id === productId)
       // добавляем найденный элемент в массив корзины
       BASKET_LIST.push(findedProduct)
+      // Обновляем счетчик
+      basketCount++
+      updateBasketCounter()
       // обновляем отрисовку корзины, если модалка открыта
       if (MODAL.open) {
         renderBasketItems()
